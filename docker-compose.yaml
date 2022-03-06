@@ -1,0 +1,25 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  icecast:
+    # About: https://github.com/moul/docker-icecast
+    image: moul/icecast
+    volumes:
+      - ./icecastlogs:/var/log/icecast2
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - ICECAST_SOURCE_PASSWORD=source-password
+      - ICECAST_PASSWORD=password
+      - ICECAST_HOSTNAME=radiogo.example.com
+    ports:
+      - 8000:8000
+      
+  liquidsoap:
+    # About: https://github.com/PhasecoreX/docker-liquidsoap
+    image: ghcr.io/phasecorex/liquidsoap:latest
+    volumes:
+      - ./stream.liq:/conf.liq
+      - ./musicdir:/media
+    command: /conf.liq
+    
+volumes:
+  logvolume01: {}
