@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+Based on: https://qiita.com/75-akimas/items/a4be5601594d5a05c3ed
+-->
+<icecast>
+    <hostname>localhost</hostname>
+    <admin>icemaster@localhost</admin>
+    <fileserve>1</fileserve>
+
+    <limits>
+        <clients>10000</clients>
+        <sources>10000</sources>
+        <queue-size>524288</queue-size>
+        <client-timeout>30</client-timeout>
+        <header-timeout>15</header-timeout>
+        <source-timeout>10</source-timeout>
+        <burst-size>65535</burst-size>
+    </limits>
+
+    <authentication>
+        <source-user>source</source-user>
+        <source-password>source-password</source-password>
+        <admin-user>admin</admin-user>
+        <admin-password>admin-password</admin-password>
+    </authentication>
+
+    <listen-socket>
+        <port>8000</port>
+    </listen-socket>
+
+    <http-headers>
+        <header name="Access-Control-Allow-Origin" value="*"/>
+    </http-headers>
+
+    <paths>
+        <logdir>/var/log</logdir>
+    </paths>
+
+    <security>
+        <chroot>0</chroot>
+    </security>
+</icecast>
