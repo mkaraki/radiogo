@@ -20,8 +20,8 @@ radio = nrj(source_chain)
 
 output.icecast(
   %vorbis,
-  host="localhost",
-  port=8001,
+  host="icecast",
+  port=8000,
   user="source",
   password="source-password",
   mount="stream.ogg",
